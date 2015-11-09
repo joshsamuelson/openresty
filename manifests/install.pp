@@ -32,6 +32,7 @@ class openresty::install ( $openresty_version = '1.9.3.1') {
 
   exec { 'configure openresty':
     command => "/usr/src/${openresty_file}/configure",
+    cwd => "/usr/src/${openresty_file}/",
     creates => "/usr/src/${openresty_file}/Makefile",
     path => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
     notify => Exec['build openresty'],
